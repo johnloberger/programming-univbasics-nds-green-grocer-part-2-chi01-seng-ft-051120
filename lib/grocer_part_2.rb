@@ -7,9 +7,12 @@ def apply_coupons(cart, coupons)
 end
 
 def apply_clearance(cart)
-  # Consult README for inputs and outputs
-  #
-  # REMEMBER: This method **should** update cart
+  cart.map do |item|
+    if item[:clearance]
+      item[:price] *= 0.8
+    end
+    item
+  end
 end
 
 def checkout(cart, coupons)
